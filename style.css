@@ -1,5 +1,6 @@
 body {
-    background-color: #333333;
+    background: linear-gradient(10deg, #333333, #1793d1);
+    -webkit-background-clip: text;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +15,7 @@ body {
     aspect-ratio: 2 / 1;
     background-color: #1793d1;
     border: 2px solid #333333;
-    border-radius: 10px;
+    border-radius: 65px;
     transform-style: preserve-3d; /* tilt card shit */
     perspective: 1000px;
     transition: transform 0.2s;
@@ -36,7 +37,9 @@ body {
 }
 
 .info {
-    color: #000000;
+    color: transparent;
+    background: linear-gradient(90deg, #000000, #000000);
+    -webkit-background-clip: text;
     text-align: center;
     margin-top: 10px;
 }
