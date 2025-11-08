@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(10deg, #333333, #1793d1);
+    background: linear-gradient(10deg, #D1D3D4, #86B0BD);
     -webkit-background-clip: text;
     display: flex;
     justify-content: center;
@@ -13,8 +13,8 @@ body {
     max-width: 500px;
     height: auto;
     aspect-ratio: 2 / 1;
-    background-color: #1793d1;
-    border: 2px solid #333333;
+    background-color: #86B0BD;
+    border: 2px solid #D1D3D4;
     border-radius: 65px;
     transform-style: preserve-3d; /* tilt card shit */
     perspective: 1000px;
@@ -31,7 +31,7 @@ body {
 }
 
 .subTitle {
-    color: #146700;
+    color: #E2A16F;
     text-align: center;
     margin-up: -10px;
 }
