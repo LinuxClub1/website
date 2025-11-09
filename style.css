@@ -6,6 +6,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: sans-serif;
 }
 
 .tilt-card {
@@ -31,7 +32,8 @@ body {
 }
 
 .subTitle {
-    color: #146700;
+    /* dev log: plainduck: changed color */
+    color: #ffd448;
     text-align: center;
     margin-up: -10px;
 }
