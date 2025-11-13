@@ -1,5 +1,7 @@
 body {
-    background: linear-gradient(10deg, #333333, #1793D1);
+    /* background: linear-gradient(10deg, #333333, #1793D1); */
+    background-image: url("assets/background.png");
+    background-color: #333333;
     -webkit-background-clip: text;
     display: flex;
     justify-content: center;
