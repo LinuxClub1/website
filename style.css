@@ -7,6 +7,13 @@
     text-rendering: auto;
     line-height: 1;
 }
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 5px solid #ffffff;
+    margin-bottom: 20px;
+}
 .fa-3x {
     font-size: 3em;
 }
@@ -32,6 +39,14 @@
 }
 .fa-twitter:before {
     content: "\f099";
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 @font-face {
     font-family: "Font Awesome 5 Brands";
