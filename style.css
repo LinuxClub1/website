@@ -622,3 +622,11 @@ body {
     color: var(--light);
     transform: scale(1.1);
 }
+
+.footer {
+    padding: 1rem;
+    text-align: center;
+    color: var(--light);
+    width: 100%;
+}
+
