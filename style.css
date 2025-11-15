@@ -556,3 +556,69 @@ body {
 .sf-hidden {
     display: none !important;
 }
+
+.profile-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--white);
+    width: 280px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    margin-bottom: 1rem;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.profile-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.profile-card p {
+    font-size: 1rem;
+    color: var(--light);
+    margin-bottom: 1.5rem;
+    min-height: 40px;
+}
+
+.card-socials {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.card-socials a {
+    color: var(--white);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.card-socials a:hover {
+    color: var(--light);
+    transform: scale(1.1);
+}
