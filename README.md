@@ -1,7 +1,8 @@
 ## Linux club website source code
 
 # People
-Peap - Overseer, just wanna make sure what's going on, may help with stuff
-Gardner - Backend head
-Antimatter - Frontend
-Johnathon - Frontend, backend
+Peap - Backend guy 1
+
+Gardner - Backend guy 2
+
+Antimatter - Frontend guy
