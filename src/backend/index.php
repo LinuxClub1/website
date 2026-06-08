@@ -30,8 +30,6 @@ if (!$formData) {
   exit;
 }
 
-$email = $form2Data['email'] ?? '';
-
 $discordData = [
   "username" => "club registration",
 
@@ -52,9 +50,9 @@ $discordData = [
       [
         "name"   => "Metadata",
         "value"  => "IP Address: `" . $_SERVER['REMOTE_ADDR'] . "`\n" .
-          "User Agent: ```text\n" . $_SERVER['HTTP_USER_AGENT'] . "\n```",
+        "User Agent: ```text\n" . str_replace('`', ' \` ', $_SERVER['HTTP_USER_AGENT']) . "\n```",
         "inline" => false
-      ],
+],
     ],
   ]]
 ];
