@@ -1,5 +1,8 @@
-# Source Code for the Linux Club Website
-bla bla bla yk what to see
+## Linux club website source code
 
-# Antimatter and Tilley and Plainduck are complete Chads!
-# *Peap is not a chad. lol*
+# People
+Peap - Backend guy 1
+
+Gardner - Backend guy 2
+
+Antimatter - Frontend guy
