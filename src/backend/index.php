@@ -12,6 +12,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $webhookUrl = trim(file_get_contents(__DIR__ . '/.env'));
 
 $rawData = file_get_contents('php://input');
+if (json_validate($rawData)) {
+  $data = json_decode($rawData, true);
+} else {
+  http_response_code(400);
+  exit;
+}
 $formData = json_decode($rawData, true);
 
 if (!$formData) {
@@ -41,7 +47,7 @@ $discordData = [
       [
         "name"   => "Metadata",
         "value"  => "IP Address: `" . $_SERVER['REMOTE_ADDR'] . "`\n" .
-        "User Agent: ```text\n" . $_SERVER['HTTP_USER_AGENT'] . "\n```",
+          "User Agent: ```text\n" . $_SERVER['HTTP_USER_AGENT'] . "\n```",
         "inline" => false
       ],
     ],
