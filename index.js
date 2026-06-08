@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch('http://fhselectronics.dev:3000/', {
+            const response = await fetch('https://api.fhselectronics.dev/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
