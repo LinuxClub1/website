@@ -12,12 +12,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 $webhookUrl = trim(file_get_contents(__DIR__ . '/.env'));
 
 $rawData = file_get_contents('php://input');
-if (json_validate($rawData)) {
-  $data = json_decode($rawData, true);
-} else {
+
+if (strlen($rawData) > 200) {
   http_response_code(400);
   exit;
 }
+
+if (!json_validate($rawData)) {
+  http_response_code(400);
+  exit;
+}
+
 $formData = json_decode($rawData, true);
 
 if (!$formData) {
@@ -25,7 +30,7 @@ if (!$formData) {
   exit;
 }
 
-$email = $formData['email'] ?? '';
+$email = $form2Data['email'] ?? '';
 
 $discordData = [
   "username" => "club registration",
