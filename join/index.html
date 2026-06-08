@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <link rel="icon" href="assets/favicon.ico" type="image/png">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Join the Club</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+   </head>
+   <body>
+      <div id="particles-js"></div>
+      <nav>
+         <div class="logo">
+            <img src="assets/logo.png" alt="Electronics Club Logo" class="nav-logo">Electronics Club
+         </div>
+         <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="join.html">Join</a></li>
+         </ul>
+      </nav>
+      <main class="form-page">
+         <section class="form-header">
+            <h1>Club Application</h1>
+            <p>
+               We meet every friday from 4:00 pm to 5:00 pm, no experenciece needed.
+            </p>
+         </section>
+         <form class="form-container" novalidate>
+            <div class="form-section">
+               <h2>Personal Information</h2>
+               <label>First name</label>
+               <input type="text" placeholder="First" required>
+               <label>Last name</label>
+               <input type="text" placeholder="Last" required>
+               <label>School email</label>
+               <input type="email" id="email-field" placeholder="person@bvsd.org" required>
+               <span id="email-error" style="color: #ef4444; font-size: 0.85rem; display: none; margin-top: 0.2rem;">Please use a bvsd.org email</span>
+               <h2>School</h2>
+               <label>Grade</label>
+               <div class="custom-select" id="grade-select">
+                  <div class="select-trigger">
+                     <span class="placeholder">Select grade</span>
+                     <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                  <div class="select-options">
+                     <div class="option" data-value="9">9</div>
+                     <div class="option" data-value="10">10</div>
+                     <div class="option" data-value="11">11</div>
+                     <div class="option" data-value="12">12</div>
+                  </div>
+                  <input type="hidden" name="grade" id="grade" required>
+               </div>
+               <label>Availability</label>
+               <div class="custom-select" id="availability-select">
+                  <div class="select-trigger">
+                     <span class="placeholder">Select availability</span>
+                     <i class="fa-solid fa-chevron-down"></i>
+                  </div>
+                  <div class="select-options">
+                     <div class="option" data-value="All meetings">All meetings</div>
+                     <div class="option" data-value="Most meetings">Most meetings</div>
+                     <div class="option" data-value="Some meetings">Some meetings</div>
+                     <div class="option" data-value="Not Sure Yet">Not sure yet</div>
+                  </div>
+                  <input type="hidden" name="availability" id="availability" required>
+               </div>
+            </div>
+            <div class="form-section">
+               <h2>Additional</h2>
+               <label>How did you find out about the club?</label>
+               <input type="text" placeholder="Posters, Friend, etc." required>
+               <label>Why do you want to join the club?</label>
+               <textarea id="whyjoin" placeholder="Tell us why you want to join." required></textarea>
+               <label>Anything else? (optional)</label>
+               <textarea id="notes" placeholder="Any extra questions"></textarea>
+               <button type="submit">
+               Submit
+               </button>
+               <div id="form-message" style="font-size: 0.95rem; margin-top: 1rem; text-align: center; font-weight: bold; display: none;"></div>
+            </div>
+         </form>
+      </main>
+      <footer>
+         <p>frontend made by antimatter, backend made by peap or plainduck idk</p>
+      </footer>
+      <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+      <script src="index.js"></script>
+   </body>
+</html>
