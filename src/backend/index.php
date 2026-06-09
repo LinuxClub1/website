@@ -18,7 +18,7 @@ if (strlen($rawData) > 200) {
   exit;
 }
 
-$ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'];
+$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
 $key = "rate_limit_" . $ip;
 
 if (!apcu_add($key, time(), 10)) {
@@ -57,7 +57,7 @@ $discordData = [
       ["name" => "Else", "value" => $formData['else'] ?? 'N/A', "inline" => false],
       [
         "name"   => "Metadata",
-        "value"  => "IP Address: `" . $_SERVER['REMOTE_ADDR'] . "`\n" .
+        "value"  => "IP Address: `" . $_SERVER['HTTP_CF_CONNECTING_IP'] . "`\n" .
         "User Agent: ```text\n" . str_replace('`', ' \` ', $_SERVER['HTTP_USER_AGENT']) . "\n```",
         "inline" => false
       ],
