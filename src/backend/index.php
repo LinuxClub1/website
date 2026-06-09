@@ -18,7 +18,7 @@ if (strlen($rawData) > 200) {
   exit;
 }
 
-$ip = $_SERVER['REMOTE_ADDR'];
+$ip = $_SERVER['HTTP_CF_CONNECTING_IP'] ?? $_SERVER['REMOTE_ADDR'];
 $key = "rate_limit_" . $ip;
 
 if (!apcu_add($key, time(), 10)) {
