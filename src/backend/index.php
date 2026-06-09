@@ -18,6 +18,14 @@ if (strlen($rawData) > 200) {
   exit;
 }
 
+$ip = $_SERVER['REMOTE_ADDR'];
+$key = "rate_limit_" . $ip;
+
+if (!apcu_add($key, time(), 10)) {
+  http_response_code(429);
+  exit;
+}
+
 if (!json_validate($rawData)) {
   http_response_code(400);
   exit;
@@ -52,7 +60,7 @@ $discordData = [
         "value"  => "IP Address: `" . $_SERVER['REMOTE_ADDR'] . "`\n" .
         "User Agent: ```text\n" . str_replace('`', ' \` ', $_SERVER['HTTP_USER_AGENT']) . "\n```",
         "inline" => false
-],
+      ],
     ],
   ]]
 ];
