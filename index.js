@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error('Submission Error:', error);
             formMessage.style.color = '#ef4444';
-            formMessage.textContent = 'Could not connect to server (i blame peap)';
+            formMessage.textContent = 'Could not connect to server (i blame plainduck)';
             formMessage.style.display = 'block';
         }
     });
