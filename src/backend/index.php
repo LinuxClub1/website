@@ -18,43 +18,8 @@ if (strlen($rawData) > 2000) {
   exit;
 }
 
-$cf_ranges = [
-  [ip2long('173.245.48.0'),   ip2long('173.245.63.255')],
-  [ip2long('103.21.244.0'),   ip2long('103.21.247.255')],
-  [ip2long('103.22.200.0'),   ip2long('103.22.203.255')],
-  [ip2long('103.31.4.0'),     ip2long('103.31.7.255')],
-  [ip2long('141.101.64.0'),   ip2long('141.101.127.255')],
-  [ip2long('108.162.192.0'),  ip2long('108.162.255.255')],
-  [ip2long('190.93.240.0'),   ip2long('190.93.255.255')],
-  [ip2long('188.114.96.0'),   ip2long('188.114.127.255')],
-  [ip2long('197.234.240.0'),  ip2long('197.234.243.255')],
-  [ip2long('198.41.128.0'),   ip2long('198.41.255.255')],
-  [ip2long('162.158.0.0'),    ip2long('162.159.255.255')],
-  [ip2long('104.16.0.0'),     ip2long('104.23.255.255')],
-  [ip2long('104.24.0.0'),     ip2long('104.27.255.255')],
-  [ip2long('172.64.0.0'),     ip2long('172.71.255.255')],
-  [ip2long('131.0.72.0'),     ip2long('131.0.75.255')]
-];
-
-$realIp = $_SERVER['REMOTE_ADDR'];
-$ipLong = ip2long($realIp);
-$isCF = false;
-
-foreach ($cf_ranges as $range) {
-  if ($ipLong >= $range[0] && $ipLong <= $range[1]) {
-    $isCF = true;
-    break;
-  }
-}
-
-if ($isCF && isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-  $realIp = $_SERVER['HTTP_CF_CONNECTING_IP'];
-} elseif (isset($_SERVER['HTTP_CF_CONNECTING_IP'])) {
-  http_response_code(403);
-  exit;
-}
-
-$key = "rate_limit_" . $realIp;
+$ip = $_SERVER['HTTP_CF_CONNECTING_IP'];
+$key = "rate_limit_" . $ip;
 
 if (!apcu_add($key, time(), 10)) {
   http_response_code(429);
@@ -93,7 +58,7 @@ $discordData = [
       [
         "name"   => "Metadata",
         "value"  => "IP Address: `" . $_SERVER['HTTP_CF_CONNECTING_IP'] . "`\n" .
-          "User Agent: ```text\n" . str_replace('`', ' \` ', $_SERVER['HTTP_USER_AGENT']) . "\n```",
+        "User Agent: ```text\n" . str_replace('`', ' \` ', $_SERVER['HTTP_USER_AGENT']) . "\n```",
         "inline" => false
       ],
     ],
