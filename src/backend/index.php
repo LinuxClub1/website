@@ -13,7 +13,7 @@ $webhookUrl = trim(file_get_contents(__DIR__ . '/.env'));
 
 $rawData = file_get_contents('php://input');
 
-if (strlen($rawData) > 200) {
+if (strlen($rawData) > 500) {
   http_response_code(400);
   exit;
 }
