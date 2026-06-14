@@ -48,12 +48,12 @@ $discordData = [
     ],
     "color" => 0xA7C080,
     "fields" => [
-      ["name" => "Name", "value" => $formData['name'] ?? 'N/A', "inline" => false],
-      ["name" => "Email", "value" => $formData['email'] ?? 'N/A', "inline" => false],
-      ["name" => "Reason", "value" => $formData['reason'] ?? 'N/A', "inline" => false],
-      ["name" => "Grade", "value" => $formData['grade'] ?? 'N/A', "inline" => false],
-      ["name" => "Availability", "value" => $formData['availability'] ?? 'N/A', "inline" => false],
-      ["name" => "Found", "value" => $formData['found'] ?? 'N/A', "inline" => false],
+      ["name" => "Name", "value" => $formData['name'], "inline" => false],
+      ["name" => "Email", "value" => $formData['email'], "inline" => false],
+      ["name" => "Reason", "value" => $formData['reason'], "inline" => false],
+      ["name" => "Grade", "value" => $formData['grade'], "inline" => false],
+      ["name" => "Availability", "value" => $formData['availability'], "inline" => false],
+      ["name" => "Found", "value" => $formData['found'], "inline" => false],
       ["name" => "Else", "value" => $formData['else'] ?? 'N/A', "inline" => false],
       [
         "name"   => "Metadata",
