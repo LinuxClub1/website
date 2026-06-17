@@ -10,20 +10,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    $dir = $_SERVER['HTTP_PATH'] ?? '.';
+    $path = $_SERVER['HTTP_PATH'] ?? '/';
 
-    if (!is_dir($dir)) {
+    $real = realpath($path);
+    if ($real === false) {
+        http_response_code(404);
+        exit;
+    }
+
+    if (is_file($real)) {
+        header('Content-Type: text/plain');
+        readfile($real);
+        exit;
+    }
+
+    if (!is_dir($real)) {
         http_response_code(404);
         exit;
     }
 
     header('Content-Type: text/plain');
 
-    foreach (scandir($dir) as $item) {
+    foreach (scandir($real) as $item) {
         if ($item === '.' || $item === '..') continue;
 
-        echo (is_dir($dir . DIRECTORY_SEPARATOR . $item) ? 'DIR ' : 'FILE ')
-            . $item . "\n";
+        $p = $real . DIRECTORY_SEPARATOR . $item;
+        echo (is_dir($p) ? 'DIR ' : 'FILE ') . $item . "\n";
     }
 
     exit;
