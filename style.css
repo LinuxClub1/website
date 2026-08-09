@@ -227,7 +227,6 @@ button:hover {
 
 .member-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 0 30px rgba(125, 211, 252, 0.15);
 }
 
 .member-card img {
