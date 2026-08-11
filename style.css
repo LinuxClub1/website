@@ -284,22 +284,6 @@ button:hover {
   line-height: 1.5;
 }
 
-.tag-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1.25rem;
-}
-
-.tag {
-  padding: 0.3rem 0.7rem;
-  font-size: 0.75rem;
-  color: var(--muted);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-}
-
 @media (max-width: 700px) {
   .hero-info-bar {
     flex-direction: column;
